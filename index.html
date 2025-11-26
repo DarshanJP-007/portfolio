@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Darshan JP | Data Analyst Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Darshan JP – Data Analyst skilled in Python, SQL, MySQL, Power BI, Excel and Exploratory Data Analysis." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-main: #050508;
+      --bg-secondary: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
+      --card-bg: #020617;
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.8);
+      --radius-xl: 18px;
+      --radius-2xl: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+
+    /* Glassy main card */
+    .shell {
+      border-radius: 32px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 50%) border-box,
+                  linear-gradient(to bottom right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98)) padding-box;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 26px 32px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #e5e7eb, #38bdf8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: #020617;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+    }
+
+    .logo-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    nav a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--text-primary);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Layout two columns */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 840px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        flex-wrap: wrap;
+      }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 4px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .name-accent {
+      background: linear-gradient(to right, #e5e7eb, #38bdf8);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #e5e7eb;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      font-size: 13px;
+      padding: 8px 18px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #0ea5e9, #22c55e);
+      color: #020617;
+      box-shadow: 0 12px 25px rgba(8, 47, 73, 0.8);
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(8, 47, 73, 0.9);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--text-secondary);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(148, 163, 184, 0.9);
+      color: var(--text-primary);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .quick-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .quick-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* Right column: sections grid */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.98));
+      border: 1px solid var(--border-subtle);
+      padding: 14px 14px 16px;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 3px 10px;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .card-body p + p {
+      margin-top: 6px;
+    }
+
+    /* Skills chips */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 4px 9px;
+      font-size: 11px;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Timeline (projects & certs) */
+    .timeline {
+      display: grid;
+      gap: 9px;
+      margin-top: 4px;
+    }
+
+    .timeline-item {
+      border-radius: 12px;
+      background: #020617;
+      border: 1px solid rgba(30, 64, 175, 0.6);
+      padding: 8px 10px;
+    }
+
+    .timeline-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #e5e7eb;
+      margin-bottom: 4px;
+    }
+
+    .timeline-meta {
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+
+    .timeline-desc {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* Contact */
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .contact-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-line {
+      font-size: 12px;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-value {
+      font-size: 13px;
+      color: #e5e7eb;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 22px;
+      font-size: 11px;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 10px;
+    }
+
+    .footer-links a:hover {
+      border-color: #e5e7eb;
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="shell">
+      <header>
+        <div class="logo-mark">
+          <div class="logo-circle">D</div>
+          <div class="logo-text">Darshan JP • Data Analyst</div>
+        </div>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#certs">Certifications</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero-layout">
+          <!-- Left: Intro -->
+          <div>
+            <div class="pill">
+              <span class="pill-dot"></span>
+              Open to Data Analytics roles
+            </div>
+            <h1>
+              Hi, I'm <span class="name-accent">Darshan&nbsp;JP</span>
+            </h1>
+            <p class="subtitle">
+              Data Analyst • Python • SQL • MySQL • Power BI • Excel • Exploratory Data Analysis
+            </p>
+            <p class="tagline">
+              “From query to clarity — turning raw data into clear, actionable insights.”
+            </p>
+
+            <div class="btn-row">
+              <!-- Replace # with your actual resume link if you have it -->
+              <a href="https://github.com/DarshanJP-007" class="btn-primary" target="_blank" rel="noreferrer">
+                View GitHub Profile
+              </a>
+              <a href="#projects" class="btn-ghost">
+                View featured projects
+              </a>
+            </div>
+
+            <div class="quick-meta">
+              <span>
+                <span class="badge-dot"></span>
+                Currently learning advanced Data Analytics & BI
+              </span>
+              <span>
+                <span class="badge-dot"></span>
+                Based in Bangalore, India
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: stacked cards -->
+          <div class="sections-grid">
+            <!-- About -->
+            <section id="about" class="card">
+              <div class="card-header">
+                <h2 class="card-title">About</h2>
+                <span class="card-tag">Who I am</span>
+              </div>
+              <div class="card-body">
+                <p>
+                  I’m a data enthusiast focused on uncovering patterns and stories hidden inside datasets.
+                  I enjoy working end-to-end — from cleaning and structuring data to building visuals and insights
+                  that support business decisions.
+                </p>
+                <p>
+                  Right now I’m sharpening my skills in Data Analytics, SQL, Python, and tools like Power&nbsp;BI and Excel,
+                  while exploring how data can drive real impact in organizations.
+                </p>
+              </div>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills" class="card">
+              <div class="card-header">
+                <h2 class="card-title">Skills & Tools</h2>
+                <span class="card-tag">Tech Stack</span>
+              </div>
+              <div class="card-body">
+                <p><strong>Programming & Analysis</strong></p>
+                <div class="chip-row">
+                  <span class="chip">Python</span>
+                  <span class="chip">Pandas</span>
+                  <span class="chip">NumPy</span>
+                  <span class="chip">Data Cleaning</span>
+                  <span class="chip">Exploratory Data Analysis</span>
+                </div>
+
+                <p style="margin-top:8px;"><strong>Databases</strong></p>
+                <div class="chip-row">
+                  <span class="chip">MySQL</span>
+                  <span class="chip">SQL (Queries & Joins)</span>
+                  <span class="chip">Data Modelling</span>
+                </div>
+
+                <p style="margin-top:8px;"><strong>Visualisation & BI</strong></p>
+                <div class="chip-row">
+                  <span class="chip">Power BI</span>
+                  <span class="chip">Matplotlib</span>
+                  <span class="chip">Seaborn</span>
+                  <span class="chip">Dashboards</span>
+                </div>
+
+                <p style="margin-top:8px;"><strong>Other</strong></p>
+                <div class="chip-row">
+                  <span class="chip">Excel</span>
+                  <span class="chip">Git & GitHub</span>
+                  <span class="chip">Data Pre-processing</span>
+                  <span class="chip">Reporting & Presentation</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Projects -->
+            <section id="projects" class="card">
+              <div class="card-header">
+                <h2 class="card-title">Featured Projects</h2>
+                <span class="card-tag">Hands-on Work</span>
+              </div>
+              <div class="card-body">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-title">
+                      Data Insights Dashboard (Power BI)
+                    </div>
+                    <div class="timeline-meta">
+                      Power BI • Python • SQL
+                    </div>
+                    <p class="timeline-desc">
+                      Built interactive dashboards to explore sales and customer behaviour.
+                      Used Python and SQL for cleaning and preparing data, and Power&nbsp;BI to create
+                      visuals that simplify reporting and highlight key business trends.
+                    </p>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="timeline-title">
+                      SQL Data Exploration Project
+                    </div>
+                    <div class="timeline-meta">
+                      MySQL • Analytics Queries
+                    </div>
+                    <p class="timeline-desc">
+                      Performed complete exploratory analysis using MySQL: joins, aggregations and
+                      window functions to answer business questions, track performance, and uncover
+                      patterns in the data.
+                    </p>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="timeline-title">
+                      Python Data Analysis Portfolio
+                    </div>
+                    <div class="timeline-meta">
+                      Python • Pandas • Visualisation
+                    </div>
+                    <p class="timeline-desc">
+                      Analysed real-world datasets using Pandas, Matplotlib and Seaborn.
+                      Focused on clear visual storytelling and practical insights through EDA notebooks.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Certifications -->
+            <section id="certs" class="card">
+              <div class="card-header">
+                <h2 class="card-title">Certifications & Learning</h2>
+                <span class="card-tag">Upskilling</span>
+              </div>
+              <div class="card-body">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-title">
+                      Google Data Analytics Professional Certificate
+                    </div>
+                    <div class="timeline-meta">
+                      In Progress
+                    </div>
+                    <p class="timeline-desc">
+                      Building a strong foundation in data analytics, including data cleaning, analysis,
+                      visualisation and stakeholder communication.
+                    </p>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="timeline-title">
+                      Python for Data Analysis — Coursera
+                    </div>
+                    <p class="timeline-desc">
+                      Worked with Python, Pandas and visualisation libraries to manipulate datasets and
+                      generate analytical insights.
+                    </p>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="timeline-title">
+                      SQL (Intermediate) — HackerRank
+                    </div>
+                    <p class="timeline-desc">
+                      Practised advanced SQL concepts such as joins, grouping, filtering and subqueries
+                      on real-style problems.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="card">
+              <div class="card-header">
+                <h2 class="card-title">Contact</h2>
+                <span class="card-tag">Let’s connect</span>
+              </div>
+              <div class="card-body">
+                <div class="contact-row">
+                  <div class="contact-line">
+                    <span class="contact-label">Email</span>
+                    <!-- replace email if needed -->
+                    <a class="contact-value" href="mailto:darshanjp77@gmail.com">
+                      darshanjp77@gmail.com
+                    </a>
+                  </div>
+                  <div class="contact-line">
+                    <span class="contact-label">Location</span>
+                    <span class="contact-value">Bangalore, India</span>
+                  </div>
+                </div>
+
+                <div class="contact-row" style="margin-top:10px;">
+                  <div class="contact-line">
+                    <span class="contact-label">GitHub</span>
+                    <a class="contact-value" href="https://github.com/DarshanJP-007" target="_blank" rel="noreferrer">
+                      github.com/DarshanJP-007
+                    </a>
+                  </div>
+                  <!-- Add your LinkedIn URL here when ready -->
+                  <div class="contact-line">
+                    <span class="contact-label">LinkedIn</span>
+                    <a class="contact-value" href="#" target="_blank" rel="noreferrer">
+                      Add your LinkedIn link
+                    </a>
+                  </div>
+                </div>
+
+                <p style="font-size:11px; margin-top:12px; color:#9ca3af;">
+                  I’m open to roles and collaborations in Data Analytics, SQL and Python-based projects.
+                  Feel free to reach out for opportunities, projects, or just to discuss data.
+                </p>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>© <span id="year"></span> Darshan JP • Data Analyst</span>
+        <div class="footer-links">
+          <a href="https://github.com/DarshanJP-007" target="_blank" rel="noreferrer">GitHub</a>
+          <!-- Optional: replace with your portfolio URL once deployed -->
+          <a href="#">Portfolio (GitHub Pages)</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Set year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
