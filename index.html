@@ -4,24 +4,27 @@
   <meta charset="UTF-8" />
   <title>Darshan JP | Data Analyst Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Darshan JP – Data Analyst skilled in Python, SQL, MySQL, Power BI, Excel and Exploratory Data Analysis." />
+  <meta name="description" content="Portfolio of Darshan JP - Data Analyst, Python Developer, SQL + Power BI + Excel." />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-main: #050508;
-      --bg-secondary: #0f172a;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.1);
-      --text-primary: #f9fafb;
-      --text-secondary: #9ca3af;
-      --card-bg: #020617;
-      --border-subtle: rgba(148, 163, 184, 0.25);
-      --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.8);
-      --radius-xl: 18px;
-      --radius-2xl: 24px;
+      --bg-main: #020617;
+      --bg-card: #020617;
+      --bg-card-alt: #020717;
+      --bg-chip: #0f172a;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.1);
+      --accent-strong: #4ade80;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --shadow-soft: 0 18px 35px rgba(0, 0, 0, 0.55);
+      --radius-lg: 24px;
+      --radius-full: 999px;
+      --transition-fast: 0.2s ease;
     }
 
     * {
@@ -30,656 +33,1092 @@
       padding: 0;
     }
 
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: "Poppins", sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
-      color: var(--text-primary);
-      min-height: 100vh;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page-wrapper {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 16px 60px;
-    }
-
-    /* Glassy main card */
-    .shell {
-      border-radius: 32px;
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 50%) border-box,
-                  linear-gradient(to bottom right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98)) padding-box;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: var(--shadow-soft);
-      padding: 28px 26px 32px;
-    }
-
-    header {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      gap: 24px;
+    }
+
+    /* Sidebar (Left Profile Card) */
+    .sidebar {
+      width: 320px;
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      padding: 24px 22px 22px;
+      border: 1px solid #111827;
+      position: sticky;
+      top: 24px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .avatar-wrapper {
+      display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 28px;
     }
 
-    .logo-mark {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-circle {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #e5e7eb, #38bdf8);
+    .avatar-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #22c55e, #4ade80);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 28px;
       font-weight: 700;
-      font-size: 18px;
-      color: #020617;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+      color: #022c22;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
     }
 
-    .logo-text {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    nav {
+    .identity {
       display: flex;
-      gap: 16px;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .identity h1 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .identity p {
       font-size: 13px;
-      color: var(--text-secondary);
+      color: var(--text-muted);
+      line-height: 1.45;
     }
 
-    nav a {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
-    }
-
-    nav a:hover {
-      border-color: rgba(148, 163, 184, 0.6);
-      color: var(--text-primary);
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    /* Layout two columns */
-    .hero-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
-      gap: 24px;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 840px) {
-      .hero-layout {
-        grid-template-columns: 1fr;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        flex-wrap: wrap;
-      }
-    }
-
-    .pill {
+    .badge-location {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      padding: 4px 10px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
       font-size: 11px;
-      color: var(--accent);
-      margin-bottom: 10px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid #111827;
+      color: var(--text-muted);
     }
 
-    .pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
-    }
-
-    h1 {
-      font-size: 30px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .name-accent {
-      background: linear-gradient(to right, #e5e7eb, #38bdf8);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .subtitle {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-    }
-
-    .tagline {
+    .badge-location span {
       font-size: 13px;
-      color: #e5e7eb;
-      font-style: italic;
-      margin-bottom: 16px;
     }
 
-    .btn-row {
+    .contact-cta {
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .btn-primary,
-    .btn-ghost {
-      border-radius: 999px;
-      font-size: 13px;
-      padding: 8px 18px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      margin-top: 4px;
     }
 
     .btn-primary {
-      background: linear-gradient(to right, #0ea5e9, #22c55e);
-      color: #020617;
-      box-shadow: 0 12px 25px rgba(8, 47, 73, 0.8);
-      font-weight: 500;
+      flex: 1;
+      padding: 8px 10px;
+      border-radius: var(--radius-full);
+      background: radial-gradient(circle at 0 0, #22c55e, #15803d);
+      color: #022c22;
+      border: none;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 30px rgba(8, 47, 73, 0.9);
+      filter: brightness(1.05);
+      box-shadow: 0 14px 35px rgba(34, 197, 94, 0.45);
     }
 
     .btn-ghost {
-      border-color: rgba(148, 163, 184, 0.6);
-      color: var(--text-secondary);
-      background: rgba(15, 23, 42, 0.9);
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      background: #020617;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
     }
 
     .btn-ghost:hover {
-      border-color: rgba(148, 163, 184, 0.9);
-      color: var(--text-primary);
-      background: rgba(15, 23, 42, 1);
+      background: #02081b;
+      border-color: #334155;
+      transform: translateY(-1px);
     }
 
-    .quick-meta {
+    .sidebar-section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .info-item-label {
+      color: var(--text-muted);
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .info-item-value {
+      font-size: 13px;
+    }
+
+    .info-item-value a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    .info-item-value a:hover {
+      text-decoration: underline;
+    }
+
+    .chips-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      font-size: 12px;
-      color: var(--text-secondary);
+      gap: 8px;
+      margin-top: 6px;
     }
 
-    .quick-meta span {
+    .chip {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--bg-chip);
+      border: 1px solid #1f2937;
+      color: var(--text-muted);
+    }
+
+    .social-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .social-link {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      background: #020617;
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
     }
 
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
+    .social-link:hover {
+      border-color: var(--accent);
+      background: rgba(34, 197, 94, 0.1);
+      transform: translateY(-1px);
     }
 
-    /* Right column: sections grid */
-    .sections-grid {
+    /* Main Content */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-lg);
+      border: 1px solid #111827;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 24px;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+    }
+
+    .top-nav-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .top-nav-title {
+      font-size: 12px;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .top-nav-sub {
+      font-size: 11px;
+      color: var(--accent-strong);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+      transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-strong);
+      border-color: var(--accent-strong);
+      transform: translateY(-1px);
+    }
+
+    .section {
+      background: rgba(15, 23, 42, 0.97);
+      border-radius: var(--radius-lg);
+      border: 1px solid #111827;
+      padding: 20px 22px 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .section-body p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .highlight-text {
+      color: var(--accent-strong);
+      font-weight: 500;
+    }
+
+    /* What I'm Doing */
+    .doing-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
+      margin-top: 6px;
     }
 
-    .card {
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.98));
-      border: 1px solid var(--border-subtle);
-      padding: 14px 14px 16px;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+    .doing-card {
+      background: linear-gradient(135deg, #020617, #02081b);
+      border-radius: 18px;
+      border: 1px solid #111827;
+      padding: 12px 12px 13px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
     }
 
-    .card-header {
+    .doing-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 18px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .doing-content h3 {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .doing-content p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .doing-card:hover {
+      transform: translateY(-3px);
+      border-color: #16a34a;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.65);
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.06), #020617);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .skill-card {
+      background: #020617;
+      border-radius: 14px;
+      border: 1px solid #111827;
+      padding: 10px 11px;
+      transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .skill-card h3 {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .skill-card p {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .skill-tag {
+      font-size: 10px;
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+      background: #02091f;
+      border: 1px solid #1f2937;
+      color: var(--text-muted);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-2px);
+      border-color: #22c55e;
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.06), #020617);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, #020617, #020719);
+      border-radius: 18px;
+      border: 1px solid #111827;
+      padding: 12px 13px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .project-title {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .project-description {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+      font-size: 11px;
+    }
+
+    .project-stack {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .project-link {
+      font-size: 11px;
+      text-decoration: none;
+      color: var(--accent-strong);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .project-bg-accent {
+      position: absolute;
+      inset: auto -20% -40%;
+      height: 70%;
+      background: radial-gradient(circle at 0 100%, rgba(34, 197, 94, 0.16), transparent 55%);
+      pointer-events: none;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: #22c55e;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.7);
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.08), #020617);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .contact-card {
+      background: #020617;
+      border-radius: 16px;
+      border: 1px solid #111827;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-card strong {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 5px;
+      color: var(--text-main);
+    }
+
+    .contact-card a {
+      color: var(--accent-strong);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    .quote-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid #111827;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-left: 2px solid var(--accent);
+    }
+
+    .quote-box span {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--accent-strong);
+    }
+
+    .footer {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    /* Contact Modal */
+    .contact-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 30;
+    }
+
+    .contact-modal {
+      width: 100%;
+      max-width: 360px;
+      background: #020617;
+      border-radius: 22px;
+      border: 1px solid #111827;
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 8px;
     }
 
-    .card-title {
-      font-size: 13px;
+    .contact-modal-title {
+      font-size: 14px;
       font-weight: 500;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: #e5e7eb;
     }
 
-    .card-tag {
-      font-size: 11px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      border-radius: 999px;
-      padding: 3px 10px;
+    .contact-modal-close {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 2px 4px;
     }
 
-    .card-body {
+    .contact-modal-body {
       font-size: 13px;
-      color: var(--text-secondary);
     }
 
-    .card-body p + p {
+    .contact-modal-body .info-list {
       margin-top: 6px;
     }
 
-    /* Skills chips */
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
-    }
-
-    .chip {
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 4px 9px;
-      font-size: 11px;
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    /* Timeline (projects & certs) */
-    .timeline {
-      display: grid;
-      gap: 9px;
-      margin-top: 4px;
-    }
-
-    .timeline-item {
-      border-radius: 12px;
-      background: #020617;
-      border: 1px solid rgba(30, 64, 175, 0.6);
-      padding: 8px 10px;
-    }
-
-    .timeline-title {
-      font-size: 12px;
-      font-weight: 500;
-      color: #e5e7eb;
-      margin-bottom: 4px;
-    }
-
-    .timeline-meta {
-      font-size: 11px;
-      color: var(--accent);
-      margin-bottom: 3px;
-    }
-
-    .timeline-desc {
-      font-size: 11px;
-      color: var(--text-secondary);
-    }
-
-    /* Contact */
-    .contact-row {
-      display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    @media (max-width: 640px) {
-      .contact-row {
-        grid-template-columns: 1fr;
+    /* Responsive */
+    @media (max-width: 980px) {
+      body {
+        padding: 16px 10px 26px;
+      }
+      .app {
+        flex-direction: column;
+      }
+      .sidebar {
+        position: static;
+        width: 100%;
+      }
+      .top-nav {
+        top: 10px;
       }
     }
 
-    .contact-line {
-      font-size: 12px;
-      color: var(--text-secondary);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+      .doing-grid,
+      .skills-grid,
+      .projects-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .section {
+        padding: 18px 16px 18px;
+      }
     }
 
-    .contact-label {
-      font-size: 11px;
-      color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .contact-value {
-      font-size: 13px;
-      color: #e5e7eb;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 22px;
-      font-size: 11px;
-      color: var(--text-secondary);
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      font-size: 10px;
-    }
-
-    .footer-links a:hover {
-      border-color: #e5e7eb;
-      color: #e5e7eb;
+    @media (max-width: 480px) {
+      .avatar-wrapper {
+        flex-direction: row;
+        align-items: center;
+      }
+      .identity h1 {
+        font-size: 20px;
+      }
+      .identity p {
+        font-size: 12px;
+      }
+      .section-title {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <div class="shell">
-      <header>
-        <div class="logo-mark">
-          <div class="logo-circle">D</div>
-          <div class="logo-text">Darshan JP • Data Analyst</div>
-        </div>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#certs">Certifications</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
 
-      <main>
-        <section class="hero-layout">
-          <!-- Left: Intro -->
-          <div>
-            <div class="pill">
-              <span class="pill-dot"></span>
-              Open to Data Analytics roles
+  <!-- Contact Modal -->
+  <div class="contact-modal-backdrop" id="contactModal">
+    <div class="contact-modal">
+      <div class="contact-modal-header">
+        <div class="contact-modal-title">Contact Details</div>
+        <button class="contact-modal-close" id="contactModalClose">&times;</button>
+      </div>
+      <div class="contact-modal-body">
+        <ul class="info-list">
+          <li>
+            <div class="info-item-label">Email</div>
+            <div class="info-item-value">
+              <a href="mailto:darshanjp77@gmail.com">darshanjp77@gmail.com</a>
             </div>
-            <h1>
-              Hi, I'm <span class="name-accent">Darshan&nbsp;JP</span>
-            </h1>
-            <p class="subtitle">
-              Data Analyst • Python • SQL • MySQL • Power BI • Excel • Exploratory Data Analysis
-            </p>
-            <p class="tagline">
-              “From query to clarity — turning raw data into clear, actionable insights.”
-            </p>
-
-            <div class="btn-row">
-              <!-- Replace # with your actual resume link if you have it -->
-              <a href="https://github.com/DarshanJP-007" class="btn-primary" target="_blank" rel="noreferrer">
-                View GitHub Profile
-              </a>
-              <a href="#projects" class="btn-ghost">
-                View featured projects
+          </li>
+          <li>
+            <div class="info-item-label">Location</div>
+            <div class="info-item-value">Bangalore, India</div>
+          </li>
+          <li>
+            <div class="info-item-label">GitHub</div>
+            <div class="info-item-value">
+              <a href="https://github.com/DarshanJP-007" target="_blank" rel="noreferrer">
+                github.com/DarshanJP-007
               </a>
             </div>
-
-            <div class="quick-meta">
-              <span>
-                <span class="badge-dot"></span>
-                Currently learning advanced Data Analytics & BI
-              </span>
-              <span>
-                <span class="badge-dot"></span>
-                Based in Bangalore, India
-              </span>
-            </div>
-          </div>
-
-          <!-- Right: stacked cards -->
-          <div class="sections-grid">
-            <!-- About -->
-            <section id="about" class="card">
-              <div class="card-header">
-                <h2 class="card-title">About</h2>
-                <span class="card-tag">Who I am</span>
-              </div>
-              <div class="card-body">
-                <p>
-                  I’m a data enthusiast focused on uncovering patterns and stories hidden inside datasets.
-                  I enjoy working end-to-end — from cleaning and structuring data to building visuals and insights
-                  that support business decisions.
-                </p>
-                <p>
-                  Right now I’m sharpening my skills in Data Analytics, SQL, Python, and tools like Power&nbsp;BI and Excel,
-                  while exploring how data can drive real impact in organizations.
-                </p>
-              </div>
-            </section>
-
-            <!-- Skills -->
-            <section id="skills" class="card">
-              <div class="card-header">
-                <h2 class="card-title">Skills & Tools</h2>
-                <span class="card-tag">Tech Stack</span>
-              </div>
-              <div class="card-body">
-                <p><strong>Programming & Analysis</strong></p>
-                <div class="chip-row">
-                  <span class="chip">Python</span>
-                  <span class="chip">Pandas</span>
-                  <span class="chip">NumPy</span>
-                  <span class="chip">Data Cleaning</span>
-                  <span class="chip">Exploratory Data Analysis</span>
-                </div>
-
-                <p style="margin-top:8px;"><strong>Databases</strong></p>
-                <div class="chip-row">
-                  <span class="chip">MySQL</span>
-                  <span class="chip">SQL (Queries & Joins)</span>
-                  <span class="chip">Data Modelling</span>
-                </div>
-
-                <p style="margin-top:8px;"><strong>Visualisation & BI</strong></p>
-                <div class="chip-row">
-                  <span class="chip">Power BI</span>
-                  <span class="chip">Matplotlib</span>
-                  <span class="chip">Seaborn</span>
-                  <span class="chip">Dashboards</span>
-                </div>
-
-                <p style="margin-top:8px;"><strong>Other</strong></p>
-                <div class="chip-row">
-                  <span class="chip">Excel</span>
-                  <span class="chip">Git & GitHub</span>
-                  <span class="chip">Data Pre-processing</span>
-                  <span class="chip">Reporting & Presentation</span>
-                </div>
-              </div>
-            </section>
-
-            <!-- Projects -->
-            <section id="projects" class="card">
-              <div class="card-header">
-                <h2 class="card-title">Featured Projects</h2>
-                <span class="card-tag">Hands-on Work</span>
-              </div>
-              <div class="card-body">
-                <div class="timeline">
-                  <div class="timeline-item">
-                    <div class="timeline-title">
-                      Data Insights Dashboard (Power BI)
-                    </div>
-                    <div class="timeline-meta">
-                      Power BI • Python • SQL
-                    </div>
-                    <p class="timeline-desc">
-                      Built interactive dashboards to explore sales and customer behaviour.
-                      Used Python and SQL for cleaning and preparing data, and Power&nbsp;BI to create
-                      visuals that simplify reporting and highlight key business trends.
-                    </p>
-                  </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-title">
-                      SQL Data Exploration Project
-                    </div>
-                    <div class="timeline-meta">
-                      MySQL • Analytics Queries
-                    </div>
-                    <p class="timeline-desc">
-                      Performed complete exploratory analysis using MySQL: joins, aggregations and
-                      window functions to answer business questions, track performance, and uncover
-                      patterns in the data.
-                    </p>
-                  </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-title">
-                      Python Data Analysis Portfolio
-                    </div>
-                    <div class="timeline-meta">
-                      Python • Pandas • Visualisation
-                    </div>
-                    <p class="timeline-desc">
-                      Analysed real-world datasets using Pandas, Matplotlib and Seaborn.
-                      Focused on clear visual storytelling and practical insights through EDA notebooks.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Certifications -->
-            <section id="certs" class="card">
-              <div class="card-header">
-                <h2 class="card-title">Certifications & Learning</h2>
-                <span class="card-tag">Upskilling</span>
-              </div>
-              <div class="card-body">
-                <div class="timeline">
-                  <div class="timeline-item">
-                    <div class="timeline-title">
-                      Google Data Analytics Professional Certificate
-                    </div>
-                    <div class="timeline-meta">
-                      In Progress
-                    </div>
-                    <p class="timeline-desc">
-                      Building a strong foundation in data analytics, including data cleaning, analysis,
-                      visualisation and stakeholder communication.
-                    </p>
-                  </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-title">
-                      Python for Data Analysis — Coursera
-                    </div>
-                    <p class="timeline-desc">
-                      Worked with Python, Pandas and visualisation libraries to manipulate datasets and
-                      generate analytical insights.
-                    </p>
-                  </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-title">
-                      SQL (Intermediate) — HackerRank
-                    </div>
-                    <p class="timeline-desc">
-                      Practised advanced SQL concepts such as joins, grouping, filtering and subqueries
-                      on real-style problems.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Contact -->
-            <section id="contact" class="card">
-              <div class="card-header">
-                <h2 class="card-title">Contact</h2>
-                <span class="card-tag">Let’s connect</span>
-              </div>
-              <div class="card-body">
-                <div class="contact-row">
-                  <div class="contact-line">
-                    <span class="contact-label">Email</span>
-                    <!-- replace email if needed -->
-                    <a class="contact-value" href="mailto:darshanjp77@gmail.com">
-                      darshanjp77@gmail.com
-                    </a>
-                  </div>
-                  <div class="contact-line">
-                    <span class="contact-label">Location</span>
-                    <span class="contact-value">Bangalore, India</span>
-                  </div>
-                </div>
-
-                <div class="contact-row" style="margin-top:10px;">
-                  <div class="contact-line">
-                    <span class="contact-label">GitHub</span>
-                    <a class="contact-value" href="https://github.com/DarshanJP-007" target="_blank" rel="noreferrer">
-                      github.com/DarshanJP-007
-                    </a>
-                  </div>
-                  <!-- Add your LinkedIn URL here when ready -->
-                  <div class="contact-line">
-                    <span class="contact-label">LinkedIn</span>
-                    <a class="contact-value" href="#" target="_blank" rel="noreferrer">
-                      Add your LinkedIn link
-                    </a>
-                  </div>
-                </div>
-
-                <p style="font-size:11px; margin-top:12px; color:#9ca3af;">
-                  I’m open to roles and collaborations in Data Analytics, SQL and Python-based projects.
-                  Feel free to reach out for opportunities, projects, or just to discuss data.
-                </p>
-              </div>
-            </section>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        <span>© <span id="year"></span> Darshan JP • Data Analyst</span>
-        <div class="footer-links">
-          <a href="https://github.com/DarshanJP-007" target="_blank" rel="noreferrer">GitHub</a>
-          <!-- Optional: replace with your portfolio URL once deployed -->
-          <a href="#">Portfolio (GitHub Pages)</a>
-        </div>
-      </footer>
+          </li>
+          <li>
+            <div class="info-item-label">Role</div>
+            <div class="info-item-value">Data Analyst, Python Developer, SQL + Power BI + Excel</div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
+  <main class="app">
+    <!-- LEFT SIDE: PROFILE -->
+    <aside class="sidebar">
+      <div class="avatar-wrapper">
+        <div class="avatar-circle">
+          DJ
+        </div>
+        <div class="identity">
+          <h1>Darshan JP</h1>
+          <p>Data Analyst, Python Developer, SQL + Power BI + Excel</p>
+          <span class="badge-location">
+            <span>📍</span> Bangalore, India
+          </span>
+        </div>
+      </div>
+
+      <div class="contact-cta">
+        <button class="btn-primary" id="showContactBtn">
+          ✉ Show Contacts
+        </button>
+        <button class="btn-ghost" title="GitHub">
+          <a href="https://github.com/DarshanJP-007" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:none;">GH</a>
+        </button>
+      </div>
+
+      <div>
+        <div class="sidebar-section-title">Quick Snapshot</div>
+        <ul class="info-list">
+          <li>
+            <div class="info-item-label">Focus</div>
+            <div class="info-item-value">Data Analytics & BI</div>
+          </li>
+          <li>
+            <div class="info-item-label">Email</div>
+            <div class="info-item-value">
+              <a href="mailto:darshanjp77@gmail.com">darshanjp77@gmail.com</a>
+            </div>
+          </li>
+          <li>
+            <div class="info-item-label">GitHub</div>
+            <div class="info-item-value">
+              <a href="https://github.com/DarshanJP-007" target="_blank" rel="noreferrer">
+                @DarshanJP-007
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="sidebar-section-title">Key Skills</div>
+        <div class="chips-row">
+          <span class="chip">Python</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">Excel</span>
+          <span class="chip">EDA</span>
+          <span class="chip">Data Pre-processing</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="sidebar-section-title">Social</div>
+        <div class="social-row">
+          <!-- Add your real links when ready -->
+          <a class="social-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer" title="LinkedIn">in</a>
+          <a class="social-link" href="https://x.com" target="_blank" rel="noreferrer" title="X (Twitter)">X</a>
+          <a class="social-link" href="https://www.instagram.com" target="_blank" rel="noreferrer" title="Instagram">IG</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT SIDE: MAIN CONTENT -->
+    <div class="main">
+      <!-- Top Nav -->
+      <div class="top-nav">
+        <div class="top-nav-left">
+          <span class="top-nav-title">Portfolio</span>
+          <span class="top-nav-sub">From query to clarity — decoding data with analytics, SQL, and Python.</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#doing">What I'm Doing</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <!-- About Section -->
+      <section class="section" id="about">
+        <div class="section-header">
+          <h2 class="section-title">About Me</h2>
+          <span class="section-subtitle">Data Analytics • Python • SQL • Power BI • Excel</span>
+        </div>
+        <div class="section-body">
+          <p>
+            I’m <span class="highlight-text">Darshan JP</span>, a data enthusiast focused on turning raw data into
+            practical insights that support smarter decisions. I enjoy working across the full analytics pipeline —
+            from collecting and cleaning data to analyzing and visualizing it in a clear, business-friendly way.
+          </p>
+          <p>
+            I’m currently building a strong foundation in <span class="highlight-text">Data Analytics</span>, with
+            hands-on experience in Python, SQL, and Excel. I’m actively exploring <span class="highlight-text">Power BI</span>,
+            advanced analytics, and business intelligence to design dashboards that tell compelling data stories.
+          </p>
+          <p>
+            Curious by nature, I love asking “why?” and digging into datasets to uncover patterns, trends, and hidden
+            stories. I’m open to opportunities where I can contribute as a <span class="highlight-text">Data Analyst / SQL / Python</span>
+            professional and grow by working on real-world analytics projects.
+          </p>
+        </div>
+      </section>
+
+      <!-- What I'm Doing -->
+      <section class="section" id="doing">
+        <div class="section-header">
+          <h2 class="section-title">What I'm Doing</h2>
+          <span class="section-subtitle">Areas I’m actively practicing & improving</span>
+        </div>
+        <div class="section-body">
+          <div class="doing-grid">
+            <div class="doing-card">
+              <div class="doing-icon">📊</div>
+              <div class="doing-content">
+                <h3>Data Analytics</h3>
+                <p>
+                  Exploring datasets with Python, SQL, and Excel to identify patterns, trends, and actionable insights.
+                </p>
+              </div>
+            </div>
+
+            <div class="doing-card">
+              <div class="doing-icon">🐍</div>
+              <div class="doing-content">
+                <h3>Python for Analysis</h3>
+                <p>
+                  Using libraries like Pandas, NumPy, Matplotlib, and Seaborn to clean data and build analytical reports.
+                </p>
+              </div>
+            </div>
+
+            <div class="doing-card">
+              <div class="doing-icon">🧮</div>
+              <div class="doing-content">
+                <h3>SQL & Databases</h3>
+                <p>
+                  Writing SQL queries to extract, filter, and aggregate data for dashboards and performance metrics.
+                </p>
+              </div>
+            </div>
+
+            <div class="doing-card">
+              <div class="doing-icon">📈</div>
+              <div class="doing-content">
+                <h3>BI Dashboards</h3>
+                <p>
+                  Practicing Power BI to design interactive dashboards that showcase key KPIs and business performance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="section" id="skills">
+        <div class="section-header">
+          <h2 class="section-title">Skills</h2>
+          <span class="section-subtitle">Technical stack & tools I use</span>
+        </div>
+        <div class="section-body">
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3>Programming & Analysis</h3>
+              <p>Writing clean, readable Python code for data analysis, preprocessing, and automation.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Jupyter</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Data Wrangling & EDA</h3>
+              <p>Cleaning, transforming, and exploring raw datasets to prepare them for deeper analysis.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">EDA</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>SQL & Databases</h3>
+              <p>Querying relational databases to answer business questions and build analytical views.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">Joins</span>
+                <span class="skill-tag">Aggregations</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Visualization & BI</h3>
+              <p>Building charts and dashboards to present data stories clearly to stakeholders.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">Matplotlib</span>
+                <span class="skill-tag">Seaborn</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Spreadsheets</h3>
+              <p>Using Excel for quick analysis, formulas, and basic dashboards when needed.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Excel</span>
+                <span class="skill-tag">Pivot Tables</span>
+                <span class="skill-tag">Charts</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Problem Solving</h3>
+              <p>Breaking down business questions into measurable metrics and data tasks.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Critical Thinking</span>
+                <span class="skill-tag">KPIs</span>
+                <span class="skill-tag">Data Storytelling</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="section" id="projects">
+        <div class="section-header">
+          <h2 class="section-title">Featured Projects</h2>
+          <span class="section-subtitle">Hands-on work from GitHub & learning journey</span>
+        </div>
+        <div class="section-body">
+          <div class="projects-grid">
+            <!-- Project 1 -->
+            <article class="project-card">
+              <div class="project-bg-accent"></div>
+              <span class="project-label">Power BI & Analytics</span>
+              <h3 class="project-title">Data Insights Dashboard (Power BI)</h3>
+              <p class="project-description">
+                Designed an interactive dashboard to visualize sales and customer data. Used Python and SQL for data
+                cleaning and preparation, then Power BI for visual storytelling and KPIs.
+              </p>
+              <div class="project-meta">
+                <span class="project-stack">Python • SQL • Power BI</span>
+                <span class="project-link">Demo in progress</span>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card">
+              <div class="project-bg-accent"></div>
+              <span class="project-label">SQL Exploration</span>
+              <h3 class="project-title">SQL Data Exploration Project</h3>
+              <p class="project-description">
+                Performed end-to-end exploration using MySQL. Wrote complex queries for extraction, filtering, grouping,
+                and performance metrics to answer business-style questions.
+              </p>
+              <div class="project-meta">
+                <span class="project-stack">MySQL • Analytics</span>
+                <span class="project-link">Practice project</span>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card">
+              <div class="project-bg-accent"></div>
+              <span class="project-label">Python Portfolio</span>
+              <h3 class="project-title">Python Data Analysis Portfolio</h3>
+              <p class="project-description">
+                Worked on multiple datasets using Pandas, Matplotlib, and Seaborn to understand patterns and build
+                visual summaries of insights.
+              </p>
+              <div class="project-meta">
+                <span class="project-stack">Python • Pandas • Viz</span>
+                <span class="project-link">Practice notebooks</span>
+              </div>
+            </article>
+
+            <!-- GitHub Repo 1 -->
+            <article class="project-card">
+              <div class="project-bg-accent"></div>
+              <span class="project-label">GitHub Repo</span>
+              <h3 class="project-title">Python-basics</h3>
+              <p class="project-description">
+                A beginner-friendly collection of Python programs covering variables, loops, functions, data types, and
+                file handling — ideal for revising fundamentals.
+              </p>
+              <div class="project-meta">
+                <span class="project-stack">Python • Jupyter</span>
+                <a class="project-link" href="https://github.com/DarshanJP-007/Python-basics" target="_blank" rel="noreferrer">
+                  View on GitHub →
+                </a>
+              </div>
+            </article>
+
+            <!-- GitHub Repo 2 -->
+            <article class="project-card">
+              <div class="project-bg-accent"></div>
+              <span class="project-label">GitHub Repo</span>
+              <h3 class="project-title">Data-Analytics</h3>
+              <p class="project-description">
+                A collection of essential Python libraries, examples, and utilities for data analysis, automation, and
+                small application experiments.
+              </p>
+              <div class="project-meta">
+                <span class="project-stack">Python • Data Analysis</span>
+                <a class="project-link" href="https://github.com/DarshanJP-007/Data-Analytics" target="_blank" rel="noreferrer">
+                  View on GitHub →
+                </a>
+              </div>
+            </article>
+
+            <!-- GitHub Repo 3 -->
+            <article class="project-card">
+              <div class="project-bg-accent"></div>
+              <span class="project-label">GitHub Repo</span>
+              <h3 class="project-title">Exploratory-Data-Analysis</h3>
+              <p class="project-description">
+                An EDA project using Pandas, NumPy, Seaborn, and Matplotlib to explore a dataset and uncover meaningful
+                patterns through visualizations.
+              </p>
+              <div class="project-meta">
+                <span class="project-stack">Python • EDA • Viz</span>
+                <a class="project-link" href="https://github.com/DarshanJP-007/Exploratory-Data-Analysis" target="_blank" rel="noreferrer">
+                  View on GitHub →
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section" id="contact">
+        <div class="section-header">
+          <h2 class="section-title">Contact</h2>
+          <span class="section-subtitle">Let’s connect and talk data</span>
+        </div>
+        <div class="section-body">
+          <div class="contact-grid">
+            <div class="contact-card">
+              <strong>Email</strong>
+              <a href="mailto:darshanjp77@gmail.com">darshanjp77@gmail.com</a>
+            </div>
+            <div class="contact-card">
+              <strong>GitHub</strong>
+              <a href="https://github.com/DarshanJP-007" target="_blank" rel="noreferrer">
+                github.com/DarshanJP-007
+              </a>
+            </div>
+            <div class="contact-card">
+              <strong>Location</strong>
+              Bangalore, India
+            </div>
+            <div class="contact-card">
+              <strong>Open To</strong>
+              Data Analyst • SQL Developer • Python Analyst opportunities
+            </div>
+          </div>
+
+          <div class="quote-box">
+            "Data doesn’t speak for itself — it speaks through those who understand it."
+            <span>— Darshan JP</span>
+          </div>
+
+          <div class="footer">
+            Designed & built for <span class="highlight-text">Darshan JP</span> • Hosted with GitHub Pages / Vercel
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
   <script>
-    // Set year automatically
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const modal = document.getElementById('contactModal');
+    const showBtn = document.getElementById('showContactBtn');
+    const closeBtn = document.getElementById('contactModalClose');
+
+    showBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
   </script>
 </body>
 </html>
